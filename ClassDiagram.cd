@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Building">
+    <Position X="0.5" Y="5.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAQEAAAAAAAAAAAAAAAAAAAAAAIAoAEAgAAAAA=</HashCode>
+      <FileName>building.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Button">
+    <Position X="3.75" Y="2.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>button.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CallBtn">
+    <Position X="3.75" Y="4.25" Width="5.25" />
+    <InheritanceLine Type="Button" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.812" Y="2.75" />
+        <Point X="4.812" Y="2.612" />
+        <Point X="6.107" Y="2.612" />
+        <Point X="6.107" Y="4.122" />
+        <Point X="6.375" Y="4.122" />
+        <Point X="6.375" Y="4.25" />
+      </Path>
+      <InheritanceModifierLabel ManuallyPlaced="true">
+        <Position X="-0.452" Y="0.081" />
+      </InheritanceModifierLabel>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAoAAEAAAgAAAAAAAAAAAAIAAAAAEAAIAAAAAAA=</HashCode>
+      <FileName>callbtn.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChoiceFloorBtn">
+    <Position X="6.25" Y="0.5" Width="2.75" />
+    <InheritanceLine Type="Button" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="4.812" Y="2.75" />
+        <Point X="4.812" Y="2.63" />
+        <Point X="6.117" Y="2.63" />
+        <Point X="6.117" Y="1.886" />
+        <Point X="7.625" Y="1.886" />
+        <Point X="7.625" Y="1.733" />
+      </Path>
+      <InheritanceModifierLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.609" Y="0.102" Height="0.182" Width="0.5" />
+      </InheritanceModifierLabel>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>choicefloorbtn.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Door">
+    <Position X="3.75" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>gAIAAgAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>door.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Elevator">
+    <Position X="0.5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>gQAAAKgAAABhAAAACAAAEAQAAAAAAAQAEQABAJADAQA=</HashCode>
+      <FileName>elevator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine">
+    <Position X="4.5" Y="10" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAEgAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>engine.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FirstLastFloor">
+    <Position X="0.5" Y="11.25" Width="3.75" />
+    <InheritanceLine Type="Floor" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="1.75" Y="8.75" />
+        <Point X="1.75" Y="8.596" />
+        <Point X="3.331" Y="8.596" />
+        <Point X="3.331" Y="11.096" />
+        <Point X="2.205" Y="11.096" />
+        <Point X="2.205" Y="11.25" />
+      </Path>
+      <InheritanceModifierLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.526" Y="-0.013" Height="0.182" Width="0.5" />
+      </InheritanceModifierLabel>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AABEAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>firstlastfloor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Floor">
+    <Position X="0.5" Y="8.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAABAAkAAAAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>floor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InterjacentFloor">
+    <Position X="3.75" Y="7.25" Width="5.25" />
+    <InheritanceLine Type="Floor" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="1.75" Y="8.75" />
+        <Point X="1.75" Y="8.596" />
+        <Point X="3.341" Y="8.596" />
+        <Point X="3.341" Y="7.096" />
+        <Point X="6.843" Y="7.096" />
+        <Point X="6.843" Y="7.25" />
+      </Path>
+      <InheritanceModifierLabel ManuallyPlaced="true">
+        <Position X="1.527" Y="0.112" />
+      </InheritanceModifierLabel>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAgAAAACAAAAAAAAAJAIAAAAA=</HashCode>
+      <FileName>interjacentfloor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenCloseBtn">
+    <Position X="6.25" Y="2" Width="2.75" />
+    <InheritanceLine Type="Button" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="4.812" Y="2.75" />
+        <Point X="4.812" Y="2.615" />
+        <Point X="6.088" Y="2.615" />
+        <Point X="6.088" Y="2.938" />
+        <Point X="6.25" Y="2.938" />
+      </Path>
+      <InheritanceModifierLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.195" Y="0.037" Height="0.182" Width="0.5" />
+      </InheritanceModifierLabel>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAIAAAAAAA=</HashCode>
+      <FileName>openclosebtn.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="DirectionCond">
+    <Position X="6.25" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAICAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>conddir.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DoorCond">
+    <Position X="4.5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>doorcond.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
