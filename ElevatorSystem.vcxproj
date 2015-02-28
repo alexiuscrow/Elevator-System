@@ -89,6 +89,7 @@
     <ClInclude Include="door.h" />
     <ClInclude Include="doorcond.h" />
     <ClInclude Include="elevator.h" />
+    <ClInclude Include="elevctrlinterplay.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="firstlastfloor.h" />
     <ClInclude Include="floor.h" />
@@ -106,6 +107,7 @@
     <ClCompile Include="door.cpp" />
     <ClCompile Include="elevator.cpp" />
     <ClCompile Include="elevatorsystem.cpp" />
+    <ClCompile Include="elevctrlinterplay.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="firstlastfloor.cpp" />
     <ClCompile Include="floor.cpp" />

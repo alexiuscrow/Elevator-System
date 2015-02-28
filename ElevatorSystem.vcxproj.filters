@@ -93,6 +93,9 @@
     <ClInclude Include="btnside.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="elevctrlinterplay.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -136,6 +139,9 @@
     </ClCompile>
     <ClCompile Include="button.cpp">
       <Filter>Файлы исходного кода\elevator\buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="elevctrlinterplay.cpp">
+      <Filter>Файлы исходного кода</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

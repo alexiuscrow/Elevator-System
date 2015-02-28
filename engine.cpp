@@ -6,31 +6,31 @@
 
 void Engine::moveNFloorsUp(int countOfFloors, int &currentFllor)
 {
-	while (currentFllor < countOfFloors)
+	while (currentFllor != (currentFllor + countOfFloors))
 	{
 		std::this_thread::sleep_for(std::chrono::seconds(SPEED));
+		getMace().lock();
+		getLogFile() << currentFllor << " этаж: Лифт поднимается" << std::endl;
 		currentFllor++;
-		std::cout << currentFllor << " этаж: Лифт поднимается" << std::endl;
+		getMace().unlock();
 	}
-	std::cout << currentFllor << " этаж: Лифт прибыл на место" << std::endl;
 }
 
 void Engine::moveNFloorsDown(int countOfFloors, int &currentFllor)
 {
-	while (currentFllor > countOfFloors)
+	while (currentFllor != (currentFllor - countOfFloors))
 	{
 		std::this_thread::sleep_for(std::chrono::seconds(SPEED));
+		getMace().lock();
+		getLogFile() << currentFllor << " этаж: Лифт спускается" << std::endl;
 		currentFllor--;
-		std::cout << currentFllor << " этаж: Лифт спускается" << std::endl;
+		getMace().unlock();
 	}
-	std::cout << currentFllor << " этаж: Лифт прибыл на место" << std::endl;
 }
 
-void Engine::stop(std::thread &thread)
+void Engine::stop()
 {
-	if (thread.joinable())
-	{
-		thread.detach();
-		std::cout << "Лифт был остановлен" << std::endl;
-	}
+	getMace().lock();
+	getLogFile() << "Лифт был остановлен" << std::endl;
+	getMace().unlock();
 }

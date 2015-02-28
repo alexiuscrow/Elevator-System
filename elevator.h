@@ -8,9 +8,10 @@
 //#include "choicefloorbtn.h"
 //#include "openclosebtn.h"
 //#include "stopbtn.h"
+#include "elevctrlinterplay.h"
 #include <vector>
 
-class Elevator
+class Elevator : public ElevCtrlInterplay
 {
 	friend class CallBtn;
 	friend class ChoiceFloorBtn;
@@ -27,7 +28,7 @@ private:
 	bool* m_queueInside;
 	bool m_destFloorNewCaller[2]; // [0] - вызванно/не вызванно, [1] - вверх/вниз
 	DirectionCond m_condition;
-	std::thread m_thdExecutMove;
+	//std::thread m_thdExecutMove;
 
 	Engine* m_engine;
 	Door* m_door;

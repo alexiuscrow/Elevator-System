@@ -61,8 +61,11 @@ void Elevator::changeDestFloor(int numOfFloor, DirectionCond condition)
 
 void Elevator::acceptDemandInside(int numOfFloor)
 {
+	getMace().lock();
 	m_queueInside[numOfFloor - 1] = true;
+	getLogFile() << "Вошедший пользователь указал " << numOfFloor << " этаж" << std::endl;
 	changeDestFloor(numOfFloor, m_condition);
+	getMace().unlock();
 
 	if (m_destFloor != 0)
 	{
@@ -75,8 +78,12 @@ void Elevator::acceptDemandInside(int numOfFloor)
 
 void Elevator::acceptDemandOutside(int numOfFloor, DirectionCond condition)
 {
+	getMace().lock();
 	m_queueOutside[numOfFloor - 1][condition] = true;
+	getLogFile() << "Лифт был вызван на " << numOfFloor << " этаж" << std::endl;
 	changeDestFloor(numOfFloor, condition);
+	getMace().unlock();
+
 	if (numOfFloor == m_destFloor)
 	{
 		m_destFloorNewCaller[0] = true;
@@ -158,8 +165,6 @@ void Elevator::move()
 
 			stop();
 			m_door->openDoor();
-			std::this_thread::sleep_for(std::chrono::seconds(M_LANDING_TIME));
-			m_door->closeDoor();
 
 			// Вызывал ли кто-то еще лифт с этого этажа пока мы ехали? --------------------
 			if (m_destFloorNewCaller[0])
@@ -172,18 +177,22 @@ void Elevator::move()
 				m_destFloorNewCaller[1] = false;
 				m_destFloorNewCaller[0] = false;
 
+				m_door->closeDoor();
+
 				//Зашедший в лифт выбирает этаж
 				//Присвоение "m_queueInside" выбранный этаж
 
 				goto MOVEONEFLOOR;
 			}
+			else
+				m_door->closeDoor();
 			//-----------------------------------------------------------------------------
 
 			// Если лифт больше никтоне вызывал то обнуляем "этаж назначения" -------------
 			int nearestFloor = findNearFloor();
 			if (nearestFloor == 0)
 			{
-				m_destFloor = 0;   // m_destFloor =  findNearFloor();
+				m_destFloor = 0;   
 				return;
 			}
 			//-----------------------------------------------------------------------------
@@ -193,20 +202,21 @@ void Elevator::move()
 		// Если на текущем этаже кто-то вызывал лифт в том направлении в котором мы движемся
 		if (m_queueOutside[m_currFloor - 1][m_condition] || m_queueInside[m_currFloor - 1])
 		{
-			if (m_queueOutside[m_currFloor - 1][m_condition])
-				m_queueOutside[m_currFloor - 1][m_condition] = false;
-			else 
-				m_queueInside[m_currFloor - 1] = false;
-
 			DirectionCond condBeforeTmpStop = m_condition;
 			stop();
 			m_door->openDoor();
-			std::this_thread::sleep_for(std::chrono::seconds(M_LANDING_TIME));
+
+			if (m_queueOutside[m_currFloor - 1][m_condition])
+			{
+				m_queueOutside[m_currFloor - 1][m_condition] = false;
+				//Зашедший в лифт выбирает этаж
+				//Присвоение "m_queueInside" выбранный этаж
+			}
+			else 
+				m_queueInside[m_currFloor - 1] = false;
+
 			m_door->closeDoor();
 			m_condition = condBeforeTmpStop;
-
-			//Зашедший в лифт выбирает этаж
-			//Присвоение "m_queueInside" выбранный этаж
 		}
 		goto MOVEONEFLOOR;
 		//---------------------------------------------------------------------------------
@@ -216,7 +226,7 @@ void Elevator::move()
 void Elevator::stop()
 {
 	m_condition = STOP;
-	//m_engine->stop( ,m_condition); // !!!!!!!!!!!!!!!! !! !!!!!!!!!!!
+	m_engine->stop(); 
 }
 
 void Elevator::openDoor()

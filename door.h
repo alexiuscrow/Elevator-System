@@ -2,8 +2,9 @@
 #define DOOR_H
 
 #include "doorcond.h"
+#include "elevctrlinterplay.h"
 
-class Door
+class Door : public ElevCtrlInterplay
 {
 private:
 	DoorCond m_condition;

@@ -1,14 +1,16 @@
 #include "stdafx.h"
-#include <iostream>
 #include "door.h"
 
 void Door::openDoor()
 {
-	std::cout << "Дверь открыта" << std::endl;
+	getMace().lock();
+	getLogFile() << "Дверь открыта" << std::endl;
+	getMace().unlock();
 }
 
 void Door::closeDoor()
 {
-	std::cout << "Дверь закрыта" << std::endl;
-
+	getMace().lock();
+	getLogFile() << "Дверь закрыта" << std::endl;
+	getMace().unlock();
 }
